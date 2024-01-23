@@ -4,13 +4,13 @@ namespace App;
 
 class MatrixOperation
 {
-    private array $A = [];
-    private array $B = [];
+    protected array $A;
+    protected array $B;
 
     public function __construct(array $A = [], array $B = [])
     {
-        $this->$A = $A;
-        $this->$B = $B;
+        $this->A = $A;
+        $this->B = $B;
     }
 
     public function isEmptyMatrix($A)
@@ -25,8 +25,8 @@ class MatrixOperation
 
     public function sum(array $A = [], array $B = [])
     {
-        $A = empty($A) ? $this->$A : $A;
-        $B = empty($B) ? $this->$B : $B;
+        $A = empty($A) ? $this->A : $A;
+        $B = empty($B) ? $this->B : $B;
         if (empty($A) || empty($B)) {
             return 'Error: not specified matrices for the sum operation';
         }
