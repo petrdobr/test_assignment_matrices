@@ -4,8 +4,7 @@ namespace App;
 
 require 'MatrixOperation.php';
 
-$A0 = [];
-
+$A0 = $B0 = [];
 $A1 = [
     [1, 2, 3],
     [1, 1, 1],
@@ -20,20 +19,29 @@ $A2 = [1];
 $B2 = [2];
 $A3 = [1, 2, 3];
 $B3 = [3, 2, 1];
+$A4 = [
+    [1, 2, 3],
+    [1],
+];
+$A5 = $B5 = [
+    [1],
+    [2],
+    [3],
+];
 
 $matrix = new MatrixOperation();
-$sum = $matrix->sum($A2, $B2);
-$subtr = $matrix->subtract($A2, $B2);
-printResult($sum);
+//Normal operations
+echo $matrix->sum($A1, $B1);
+echo $matrix->sum($A2, $B2);
+echo $matrix->sum($A3, $B3);
+echo $matrix->subtract($A1, $B1);
+echo $matrix->subtract($A2, $B2);
+echo $matrix->subtract($A3, $B3);
 
-
-//print function
-function printResult($result) {
-    if (is_array($result[0] ?? null)) {
-        foreach ($result as $row) {
-            echo "[" . implode(" ", $row) . "]\n";
-        }
-    } else {
-        echo "[" . implode(" ", $result) . "]\n";
-    }
-}
+//display errors
+echo $matrix->sum($A0, $B0);
+echo $matrix->sum($A1, $B2);
+echo $matrix->sum($A4, $B2);
+echo $matrix->subtract($A0, $B0);
+echo $matrix->subtract($A1, $B2);
+echo $matrix->subtract($A4, $B2);
