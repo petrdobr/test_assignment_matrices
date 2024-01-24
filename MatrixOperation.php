@@ -121,7 +121,7 @@ class MatrixOperation
     /* 
     * Проверка размерностей матриц, если размерности разные, операция невозможна
     */
-    private function haveEqualDimensions(array $A, array $B): bool
+    public function haveEqualDimensions(array $A, array $B): bool
     {
         // Запись числа элементов в строке и в столбце с учетом возможности 1-мерного массива
         $rowsA = count($A);
@@ -145,7 +145,7 @@ class MatrixOperation
     /* 
     * Проверка является ли массив матрицей (число столбцов одинаково в каждой из строк)
     */
-    private function isMatrix(array $A): bool
+    public function isMatrix(array $A): bool
     {
         // Если массив 1-мерный
         if(!is_array($A[0])) {
